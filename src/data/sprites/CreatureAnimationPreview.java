@@ -9,7 +9,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package data.sprites.monsters;
+package data.sprites;
 
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;

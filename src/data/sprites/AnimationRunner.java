@@ -9,7 +9,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package data.sprites.monsters;
+package data.sprites;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

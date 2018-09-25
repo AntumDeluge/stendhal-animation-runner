@@ -36,7 +36,7 @@
 
 	<target name="compile" depends="clean" description="Compiles into byte code">
 		<mkdir dir="${dir.classes}" />
-		<javac srcdir="${dir.src}" destdir="${dir.classes}" />
+		<javac srcdir="${dir.src}" destdir="${dir.classes}" includeantruntime="false" />
 	</target>
 
 	<target name="jar" depends="compile" description="Create executable jar package">

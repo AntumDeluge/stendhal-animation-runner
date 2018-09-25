@@ -1,3 +1,7 @@
 Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.3
+Created-By: 1.8.0_181-1-ojdkbuild-b13 (Oracle Corporation)
 Main-Class: data.sprites.CreatureAnimationPreview
+Specification-Title: Stendhal Animation Runner
+Specification-Version: 0.1.0-1-ba33992
 

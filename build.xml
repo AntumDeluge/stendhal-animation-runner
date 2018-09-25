@@ -1,0 +1,33 @@
+<?xml version='1.0'?>
+
+<project name="Stendhal Animation Runner" default="jar" basedir=".">
+
+	<property name="dir.src" value="src" />
+	<property name="dir.build" value="build" />
+	<property name="dir.classes" value="${dir.build}/classes" />
+	<property name="dir.jar" value="${dir.build}/jar" />
+	<property name="file.jar" value="${dir.jar}/AnimationRunner.jar" />
+
+	<target name="clean">
+		<delete dir="build" />
+	</target>
+
+	<target name="compile" description="Compiles into byte code">
+		<mkdir dir="${dir.classes}" />
+		<javac srcdir="${dir.src}" destdir="${dir.classes}" />
+	</target>
+
+	<target name="jar" depends="compile" description="Create executable jar package">
+		<mkdir dir="${dir.jar}" />
+		<jar destfile="${file.jar}" basedir="${dir.classes}">
+			<manifest>
+				<attribute name="Main-Class" value="data.sprites.CreatureAnimationPreview" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run" depends="jar">
+		<java jar="${file.jar}" fork="true" />
+	</target>
+
+</project>

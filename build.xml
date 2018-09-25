@@ -7,12 +7,25 @@
 	<property name="dir.classes" value="${dir.build}/classes" />
 	<property name="dir.jar" value="${dir.build}/jar" />
 	<property name="file.jar" value="${dir.jar}/AnimationRunner.jar" />
+	<property name="launch4j" value="launch4j/launch4j.jar" />
+
+	<condition property="not.exist.launch4j">
+		<not>
+			<available file="${launch4j}" />
+		</not>
+	</condition>
 
 	<target name="clean">
 		<delete dir="build" />
 	</target>
 
-	<target name="compile" description="Compiles into byte code">
+	<target name="clean_launch4j">
+		<delete dir="launch4j" file="launch4j.zip" />
+	</target>
+
+	<target name="clean_all" depends="clean, clean_launch4j" />
+
+	<target name="compile" depends="clean" description="Compiles into byte code">
 		<mkdir dir="${dir.classes}" />
 		<javac srcdir="${dir.src}" destdir="${dir.classes}" />
 	</target>
@@ -28,6 +41,18 @@
 
 	<target name="run" depends="jar">
 		<java jar="${file.jar}" fork="true" />
+	</target>
+
+	<target name="get_launch4j" if="not.exist.launch4j" description="Downloads launch4j application for creating Win32 executable">
+		<echo message="Downloading launch4j ..." />
+		<get src="https://sourceforge.net/projects/launch4j/files/launch4j-3/3.12/launch4j-3.12-win32.zip/download" dest="launch4j.zip" verbose="true" usetimestamp="true" />
+		<unzip src="launch4j.zip" dest="." overwrite="true" />
+	</target>
+
+	<target name="exe" depends="jar, get_launch4j" description="Create Win32 executable (.exe)">
+		<java jar="${launch4j}" fork="true">
+			<arg value="launch4j.xml" />
+		</java>
 	</target>
 
 </project>

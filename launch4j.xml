@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <headerType>gui</headerType>
+  <jar>build/jar/AnimationRunner.jar</jar>
+  <outfile>build/jar/AnimationRunner.exe</outfile>
+  <dontWrapJar>false</dontWrapJar>
+  <priority>normal</priority>
+  <stayAlive>false</stayAlive>
+  <!--
+  <icon>icon.ico</icon>
+  -->
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <minVersion>1.6.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+</launch4jConfig>

@@ -31,7 +31,10 @@ import javax.swing.JSplitPane;
 import javax.swing.SwingUtilities;
 import javax.swing.event.TreeSelectionListener;
 
-public class CreatureAnimationPreview {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class CreatureAnimationPreview extends Application {
 	private static final int NUMBER_OF_ROWS = 4;
 	private static final int NUMBER_OF_FRAMES = 3;
 
@@ -72,7 +75,6 @@ public class CreatureAnimationPreview {
 
 	public static void main(final String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
-			@Override
 			public void run() {
 				new CreatureAnimationPreview();
 			}
@@ -132,7 +134,6 @@ public class CreatureAnimationPreview {
 	 * Handler for tree selection changes.
 	 */
 	private class TreeSelector implements TreeSelectionListener {
-		@Override
 		public void valueChanged(final javax.swing.event.TreeSelectionEvent e) {
 			jFrame.setTitle(e.getNewLeadSelectionPath().getLastPathComponent().toString());
 
@@ -159,5 +160,9 @@ public class CreatureAnimationPreview {
 			}
 			split.resetToPreferredSizes();
 		}
+	}
+
+	public void start(Stage stage) throws Exception {
+		stage.show();
 	}
 }

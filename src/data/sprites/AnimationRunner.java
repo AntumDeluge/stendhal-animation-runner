@@ -40,7 +40,6 @@ public class AnimationRunner implements ActionListener {
 		timer.stop();
 	}
 
-	@Override
 	public void actionPerformed(final ActionEvent e) {
 		viewer.setIcon(new ImageIcon(frames[currentframe]));
 

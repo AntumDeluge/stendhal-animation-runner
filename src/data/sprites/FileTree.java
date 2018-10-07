@@ -121,14 +121,12 @@ public class FileTree extends JTree {
 		}
 
 		// Override isLeaf to check whether this is a directory
-		@Override
 		public boolean isLeaf() {
 			return !isDir;
 		}
 
 		// Override getAllowsChildren to check whether
 		// this is a directory
-		@Override
 		public boolean getAllowsChildren() {
 			return isDir;
 		}
@@ -198,7 +196,6 @@ public class FileTree extends JTree {
 
 	// Inner class that handles Tree Expansion Events
 	protected static class TreeExpansionHandler implements TreeExpansionListener {
-		@Override
 		public void treeExpanded(final TreeExpansionEvent evt) {
 			// The expanded path
 			final TreePath path = evt.getPath();
@@ -213,7 +210,6 @@ public class FileTree extends JTree {
 			}
 		}
 
-		@Override
 		public void treeCollapsed(final TreeExpansionEvent evt) {
 			// Nothing to do
 		}
